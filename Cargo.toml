@@ -1,0 +1,17 @@
+[package]
+name = "crate-digger-rust"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies.rocket]
+version = "0.5.1"
+features = ["json"]
+
+[dependencies.sqlx]
+version = "0.7.0"
+default-features = false
+features = ["macros", "migrate"]
+
+[dependencies.rocket_db_pools]
+version = "0.2.0"
+features = ["sqlx_sqlite"]
