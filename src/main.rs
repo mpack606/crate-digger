@@ -1,17 +1,23 @@
-#[macro_use]
-extern crate rocket;
+use dioxus::prelude::*;
 
-mod api;
+use crate::ui::album_card::AlbumCard;
+
+const FAVICON: Asset = asset!("/assets/favicon.ico");
+const MAIN_CSS: Asset = asset!("/assets/main.css");
+const HEADER_SVG: Asset = asset!("/assets/header.svg");
+const TAILWIND_CSS: Asset = asset!("/assets/tailwind.css");
+
 mod domain;
 mod infrastructure;
+mod ui;
 
-use rocket::{launch, routes};
+fn main() {
+    dioxus::launch(App);
+}
 
-use crate::api::album_search::album_search;
-
-#[launch]
-fn rocket() -> _ {
-    rocket::build()
-        .mount("/search", routes![album_search])
-        .mount("/library", routes![])
+#[component]
+fn App() -> Element {
+    rsx! {
+        AlbumCard { album_name: "Album 1", artist: "Artist 1" }
+    }
 }

@@ -3,15 +3,22 @@ name = "crate-digger-rust"
 version = "0.1.0"
 edition = "2024"
 
-[dependencies.rocket]
-version = "0.5.1"
-features = ["json"]
+[dependencies]
+dioxus = { version = "0.7.1", features = [] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+[features]
+default = ["desktop"]
+web = ["dioxus/web"]
+desktop = ["dioxus/desktop"]
+mobile = ["dioxus/mobile"]
+
+[dependencies.uuid]
+version = "1"
+features = ["v4", "serde"]
 
 [dependencies.sqlx]
 version = "0.7.0"
 default-features = false
 features = ["macros", "migrate"]
-
-[dependencies.rocket_db_pools]
-version = "0.2.0"
-features = ["sqlx_sqlite"]

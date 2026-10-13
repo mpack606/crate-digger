@@ -1,0 +1,232 @@
+{
+  "albums": {
+    "href": "https://api.spotify.com/v1/search?offset=0&limit=5&query=The%20blueprint&type=album&market=PL&locale=en-US,pl;q%3D0.9,en;q%3D0.8",
+    "limit": 5,
+    "next": "https://api.spotify.com/v1/search?offset=5&limit=5&query=The%20blueprint&type=album&market=PL&locale=en-US,pl;q%3D0.9,en;q%3D0.8",
+    "offset": 0,
+    "previous": null,
+    "total": 6,
+    "items": [
+      {
+        "album_type": "album",
+        "total_tracks": 15,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/69CmkikTHkGKdkrUZTtyWl"
+        },
+        "href": "https://api.spotify.com/v1/albums/69CmkikTHkGKdkrUZTtyWl",
+        "id": "69CmkikTHkGKdkrUZTtyWl",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b2731b3f6f34954118500ed3e7a7",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e021b3f6f34954118500ed3e7a7",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d000048511b3f6f34954118500ed3e7a7",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "The Blueprint (Explicit Version)",
+        "release_date": "2001-09-11",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:69CmkikTHkGKdkrUZTtyWl",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3nFkdlSjzX9mRTtwJOzDYB"
+            },
+            "href": "https://api.spotify.com/v1/artists/3nFkdlSjzX9mRTtwJOzDYB",
+            "id": "3nFkdlSjzX9mRTtwJOzDYB",
+            "name": "JAŸ-Z",
+            "type": "artist",
+            "uri": "spotify:artist:3nFkdlSjzX9mRTtwJOzDYB"
+          }
+        ],
+        "is_playable": true
+      },
+      {
+        "album_type": "album",
+        "total_tracks": 15,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/2CUT0104gySOIvqwtXeFsX"
+        },
+        "href": "https://api.spotify.com/v1/albums/2CUT0104gySOIvqwtXeFsX",
+        "id": "2CUT0104gySOIvqwtXeFsX",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b273fec1b815bb3c50a64a90fd10",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e02fec1b815bb3c50a64a90fd10",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00004851fec1b815bb3c50a64a90fd10",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "The Blueprint 3",
+        "release_date": "2009-09-08",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:2CUT0104gySOIvqwtXeFsX",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3nFkdlSjzX9mRTtwJOzDYB"
+            },
+            "href": "https://api.spotify.com/v1/artists/3nFkdlSjzX9mRTtwJOzDYB",
+            "id": "3nFkdlSjzX9mRTtwJOzDYB",
+            "name": "JAŸ-Z",
+            "type": "artist",
+            "uri": "spotify:artist:3nFkdlSjzX9mRTtwJOzDYB"
+          }
+        ],
+        "is_playable": true
+      },
+      {
+        "album_type": "album",
+        "total_tracks": 25,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/5xHStEOG8PsbzNQb7LkxZU"
+        },
+        "href": "https://api.spotify.com/v1/albums/5xHStEOG8PsbzNQb7LkxZU",
+        "id": "5xHStEOG8PsbzNQb7LkxZU",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b273b7c45af95aaf599cee3acf08",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e02b7c45af95aaf599cee3acf08",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00004851b7c45af95aaf599cee3acf08",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "The Blueprint 2: The Gift & The Curse",
+        "release_date": "2002-11-12",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:5xHStEOG8PsbzNQb7LkxZU",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3nFkdlSjzX9mRTtwJOzDYB"
+            },
+            "href": "https://api.spotify.com/v1/artists/3nFkdlSjzX9mRTtwJOzDYB",
+            "id": "3nFkdlSjzX9mRTtwJOzDYB",
+            "name": "JAŸ-Z",
+            "type": "artist",
+            "uri": "spotify:artist:3nFkdlSjzX9mRTtwJOzDYB"
+          }
+        ],
+        "is_playable": true
+      },
+      {
+        "album_type": "album",
+        "total_tracks": 15,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/1g3Ek21j6qDWt2CtravhrX"
+        },
+        "href": "https://api.spotify.com/v1/albums/1g3Ek21j6qDWt2CtravhrX",
+        "id": "1g3Ek21j6qDWt2CtravhrX",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b2734b328c297d151d432c7b1aa3",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e024b328c297d151d432c7b1aa3",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d000048514b328c297d151d432c7b1aa3",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "The Blueprint 3",
+        "release_date": "2009-09-08",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:1g3Ek21j6qDWt2CtravhrX",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3nFkdlSjzX9mRTtwJOzDYB"
+            },
+            "href": "https://api.spotify.com/v1/artists/3nFkdlSjzX9mRTtwJOzDYB",
+            "id": "3nFkdlSjzX9mRTtwJOzDYB",
+            "name": "JAŸ-Z",
+            "type": "artist",
+            "uri": "spotify:artist:3nFkdlSjzX9mRTtwJOzDYB"
+          }
+        ],
+        "is_playable": true
+      },
+      {
+        "album_type": "album",
+        "total_tracks": 25,
+        "external_urls": {
+          "spotify": "https://open.spotify.com/album/7uXPsuz1CFjJYDdbAfm3Hv"
+        },
+        "href": "https://api.spotify.com/v1/albums/7uXPsuz1CFjJYDdbAfm3Hv",
+        "id": "7uXPsuz1CFjJYDdbAfm3Hv",
+        "images": [
+          {
+            "url": "https://i.scdn.co/image/ab67616d0000b273d113554293b5dbb42da46ca7",
+            "height": 640,
+            "width": 640
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00001e02d113554293b5dbb42da46ca7",
+            "height": 300,
+            "width": 300
+          },
+          {
+            "url": "https://i.scdn.co/image/ab67616d00004851d113554293b5dbb42da46ca7",
+            "height": 64,
+            "width": 64
+          }
+        ],
+        "name": "The Blueprint 2: The Gift & The Curse",
+        "release_date": "2002-11-12",
+        "release_date_precision": "day",
+        "type": "album",
+        "uri": "spotify:album:7uXPsuz1CFjJYDdbAfm3Hv",
+        "artists": [
+          {
+            "external_urls": {
+              "spotify": "https://open.spotify.com/artist/3nFkdlSjzX9mRTtwJOzDYB"
+            },
+            "href": "https://api.spotify.com/v1/artists/3nFkdlSjzX9mRTtwJOzDYB",
+            "id": "3nFkdlSjzX9mRTtwJOzDYB",
+            "name": "JAŸ-Z",
+            "type": "artist",
+            "uri": "spotify:artist:3nFkdlSjzX9mRTtwJOzDYB"
+          }
+        ],
+        "is_playable": true
+      }
+    ]
+  }
+}
