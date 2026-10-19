@@ -1,9 +1,14 @@
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
+pub enum DomainError {
+    UnknownError
+}
+
 #[derive(Serialize, Deserialize, Clone)]
 pub struct Album {
     pub id: Uuid,
+    pub spotify_id: String,
     pub name: String,
     pub artist: String,
     pub rating: u8,

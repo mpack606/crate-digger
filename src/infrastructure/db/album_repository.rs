@@ -8,6 +8,7 @@ pub async fn get_saved_albums() -> Result<Vec<Album>, RepositoryError> {
     Ok(vec![
         Album {
             id: Uuid::new_v4(),
+            spotify_id: "ABCD".to_string(),
             name: "My beatiful dark twisted fantasy".to_string(),
             artist: "Kanye West".to_string(),
             rating: 2,
@@ -15,6 +16,7 @@ pub async fn get_saved_albums() -> Result<Vec<Album>, RepositoryError> {
         },
         Album {
             id: Uuid::new_v4(),
+            spotify_id: "ABCD".to_string(),
             name: "The blueprint".to_string(),
             artist: "Jay-Z".to_string(),
             rating: 3,
