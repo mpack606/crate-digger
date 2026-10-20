@@ -7,6 +7,8 @@ use crate::{
 };
 
 pub async fn add_to_library(spotify_id: &String) -> Result<(), DomainError> {
+    // todo check if already added to library
+
     let album = spotify::spotify_api::spotify_get_album(spotify_id).await;
 
     let result = match album {

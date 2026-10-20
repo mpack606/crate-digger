@@ -12,6 +12,7 @@ pub fn AlbumSearch() -> Element {
     let mut query = use_signal(|| "".to_string());
 
     // todo change save button state while saving album
+    // todo change save button state based on if album is present in library
     rsx! {
         div { class: "items-center p-1",
             p {
@@ -23,7 +24,12 @@ pub fn AlbumSearch() -> Element {
                     placeholder: "Search query...",
                     oninput: move |e| query.set(e.value()),
                 }
-                button { onclick: move |_| async move { spotify_search(&mut albums, &query); }, "Search" }
+                button {
+                    onclick: move |_| async move {
+                        spotify_search(&mut albums, &query);
+                    },
+                    "Search"
+                }
             }
             div {
                 for album in albums.iter() {
@@ -36,7 +42,12 @@ pub fn AlbumSearch() -> Element {
                         {
                             let spotify_id = album.spotify_id.clone();
                             rsx! {
-                                button { onclick: move |_| async move { add_to_library(&spotify_id); }, "Add to library" }
+                                button {
+                                    onclick: |_| async move {
+                                        add_to_library(&spotify_id);
+                                    },
+                                    "Add to library"
+                                }
                             }
                         }
                     }
