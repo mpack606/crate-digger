@@ -23,12 +23,12 @@ pub fn AlbumSearch() -> Element {
                     placeholder: "Search query...",
                     oninput: move |e| query.set(e.value()),
                 }
-                button { onclick: move |_| async move { spotify_search(&mut albums, &query); }, "Search" }
+                button { onclick: move |_| async move { spotify_search(&mut albums, &query).await; }, "Search" }
             }
             div {
                 for album in albums.iter() {
                     div {
-                        AlbumCard {
+                        SearchAlbumCard {
                             album_name: album.name.clone(),
                             artist: album.artist.clone(),
                             image_url: album.image_url.clone(),
@@ -36,7 +36,10 @@ pub fn AlbumSearch() -> Element {
                         {
                             let spotify_id = album.spotify_id.clone();
                             rsx! {
-                                button { onclick: move |_| async move { add_to_library(&spotify_id); }, "Add to library" }
+                                button { onclick: move |_| {
+                                    let spotify_id = spotify_id.clone();
+                                    async move { add_to_library(&spotify_id).await; }
+                                }, "Add to library" }
                             }
                         }
                     }
@@ -53,4 +56,22 @@ async fn add_to_library(spotify_id: &String) {
 async fn spotify_search(albums: &mut Signal<Vec<Album>>, query: &Signal<String>) {
     let search_results = spotify_search_albums(query.read().to_string());
     *albums.write() = search_results.await;
+}
+
+#[component]
+pub fn SearchAlbumCard(
+    album_name: String,
+    artist: String,
+    image_url: String,
+    error_msg: Signal<Option<String>>,
+) -> Element {
+    rsx! {
+        div { class: "border-solid, items-center",
+            p { "Album:" }
+            p { {album_name} }
+            p { {artist} }
+            img { src: image_url, height: 128, width: 128 }
+                if ()
+        }
+    }
 }
