@@ -3,7 +3,6 @@ use dioxus::prelude::*;
 use crate::{
     domain::{self, entities::Album},
     infrastructure::spotify::spotify_api::spotify_search_albums,
-    ui::album_card::AlbumCard,
 };
 
 #[component]
@@ -26,7 +25,7 @@ pub fn AlbumSearch() -> Element {
                 }
                 button {
                     onclick: move |_| async move {
-                        spotify_search(&mut albums, &query);
+                        spotify_search(&mut albums, &query).await;
                     },
                     "Search"
                 }
@@ -43,8 +42,11 @@ pub fn AlbumSearch() -> Element {
                             let spotify_id = album.spotify_id.clone();
                             rsx! {
                                 button {
-                                    onclick: |_| async move {
-                                        add_to_library(&spotify_id);
+                                    onclick: move |_| {
+                                        let spotify_id = spotify_id.clone();
+                                        async move {
+                                            add_to_library(&spotify_id).await;
+                                        }
                                     },
                                     "Add to library"
                                 }
@@ -58,7 +60,8 @@ pub fn AlbumSearch() -> Element {
 }
 
 async fn add_to_library(spotify_id: &String) {
-    domain::library::add_to_library(spotify_id).await;
+    // todo handle result
+    domain::library::add_to_library(spotify_id).await.unwrap();
 }
 
 async fn spotify_search(albums: &mut Signal<Vec<Album>>, query: &Signal<String>) {
@@ -67,19 +70,15 @@ async fn spotify_search(albums: &mut Signal<Vec<Album>>, query: &Signal<String>)
 }
 
 #[component]
-pub fn SearchAlbumCard(
-    album_name: String,
-    artist: String,
-    image_url: String,
-    error_msg: Signal<Option<String>>,
-) -> Element {
+pub fn SearchAlbumCard(album_name: String, artist: String, image_url: String) -> Element {
     rsx! {
-        div { class: "border-solid, items-center",
-            p { "Album:" }
-            p { {album_name} }
-            p { {artist} }
-            img { src: image_url, height: 128, width: 128 }
-                if ()
+        div { class: "flex items-center gap-4",
+            img { src: image_url, class: "h-24 w-24 shrink-0 object-contain" }
+            div { class: "flex min-w-0 flex-col gap-1",
+                p { {album_name} }
+                p { {artist} }
+                p { "2025" }
+            }
         }
     }
 }
