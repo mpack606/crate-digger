@@ -4,16 +4,17 @@ use dioxus::prelude::*;
 pub struct AlbumCardProps {
     album_name: String,
     artist: String,
-    image_url: String
+    image_url: String,
+    display_rating: bool,
 }
 
 pub fn AlbumCard(props: AlbumCardProps) -> Element {
     rsx! {
-        div { class: "border-solid, items-center",
-            p { "Album:" }
-            p { {props.album_name} }
-            p { {props.artist} }
-            img { src: props.image_url, height: 128, width: 128 }
+        div { class: "",
+            p { class: "", "Album:" }
+            p { class: "", {props.album_name} }
+            p { class: "", {props.artist} }
+            img { class: "", src: props.image_url, height: 128, width: 128 }
         }
     }
 }
