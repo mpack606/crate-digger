@@ -13,9 +13,9 @@ pub fn AlbumSearch() -> Element {
     // todo change save button state while saving album
     // todo change save button state based on if album is present in library
     rsx! {
-        div { class: "items-center p-1",
+        div { class: "min-w-0 flex-1",
             p {
-                label { "Search albums: " }
+                label { class: "font-bold", "Search albums " }
             }
             p {
                 input {
@@ -73,7 +73,7 @@ async fn spotify_search(albums: &mut Signal<Vec<Album>>, query: &Signal<String>)
 pub fn SearchAlbumCard(album_name: String, artist: String, image_url: String) -> Element {
     rsx! {
         div { class: "flex items-center gap-4",
-            img { src: image_url, class: "h-24 w-24 shrink-0 object-contain" }
+            img { src: image_url, class: "h-32 w-32 shrink-0 object-contain" }
             div { class: "flex min-w-0 flex-col gap-1",
                 p { {album_name} }
                 p { {artist} }

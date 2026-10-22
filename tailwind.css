@@ -1,1 +1,11 @@
 @import "tailwindcss";
+@theme {
+  --color-crate-orange: #FF4B12;
+  --color-sun-label: #FFC83D;
+  --color-record-black: #171817;
+  --color-sleeve-white: #FFFDF8;
+  --color-warm-cream: #F5F0E6;
+  --color-soft-orange: #FFE2D5;
+  --color-muted-gold: #E5A91D;
+  --color-groove-gray: #74716B;
+}
