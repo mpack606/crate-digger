@@ -41,7 +41,8 @@ pub fn AlbumSearch() -> Element {
                         {
                             let spotify_id = album.spotify_id.clone();
                             rsx! {
-                                button { class: "ml-auto shrink-0 m-4 border-crate-orange rounded-xl text-crate-orange",
+                                button {
+                                    class: "ml-auto shrink-0 m-4 p-4 border-2 border-crate-orange rounded-xl text-crate-orange font-bold",
                                     onclick: move |_| {
                                         let spotify_id = spotify_id.clone();
                                         async move {
@@ -73,7 +74,10 @@ async fn spotify_search(albums: &mut Signal<Vec<Album>>, query: &Signal<String>)
 pub fn SearchAlbumCard(album_name: String, artist: String, image_url: String) -> Element {
     rsx! {
         div { class: "flex items-center gap-4",
-            img { src: image_url, class: "h-32 w-32 shrink-0 object-contain rounded-md" }
+            img {
+                src: image_url,
+                class: "h-32 w-32 shrink-0 object-contain rounded-md",
+            }
             div { class: "flex min-w-0 flex-col gap-1",
                 p { class: "font-bold", {album_name} }
                 p { {artist} }
