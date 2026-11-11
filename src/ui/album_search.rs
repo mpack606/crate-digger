@@ -13,7 +13,7 @@ pub fn AlbumSearch() -> Element {
     // todo change save button state while saving album
     // todo change save button state based on if album is present in library
     rsx! {
-        div { class: "min-w-0 flex-1",
+        div { class: "min-w-0 flex-1 p",
             p {
                 label { class: "font-bold", "Search albums " }
             }
@@ -32,7 +32,7 @@ pub fn AlbumSearch() -> Element {
             }
             div {
                 for album in albums.iter() {
-                    div {
+                    div { class: "flex w-full items-center gap-4 border-b border-groove-gray p-4",
                         SearchAlbumCard {
                             album_name: album.name.clone(),
                             artist: album.artist.clone(),
@@ -41,7 +41,7 @@ pub fn AlbumSearch() -> Element {
                         {
                             let spotify_id = album.spotify_id.clone();
                             rsx! {
-                                button {
+                                button { class: "ml-auto shrink-0 m-4 border-crate-orange rounded-xl text-crate-orange",
                                     onclick: move |_| {
                                         let spotify_id = spotify_id.clone();
                                         async move {
@@ -73,11 +73,11 @@ async fn spotify_search(albums: &mut Signal<Vec<Album>>, query: &Signal<String>)
 pub fn SearchAlbumCard(album_name: String, artist: String, image_url: String) -> Element {
     rsx! {
         div { class: "flex items-center gap-4",
-            img { src: image_url, class: "h-32 w-32 shrink-0 object-contain" }
+            img { src: image_url, class: "h-32 w-32 shrink-0 object-contain rounded-md" }
             div { class: "flex min-w-0 flex-col gap-1",
-                p { {album_name} }
+                p { class: "font-bold", {album_name} }
                 p { {artist} }
-                p { "2025" }
+                p { class: "text-groove-gray", "2025" }
             }
         }
     }
