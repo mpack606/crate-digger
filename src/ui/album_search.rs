@@ -9,25 +9,35 @@ use crate::{
 pub fn AlbumSearch() -> Element {
     let mut albums: Signal<Vec<Album>> = use_signal(|| Vec::new());
     let mut query = use_signal(|| "".to_string());
+    let mut search_loaded = use_signal(|| false);
 
     // todo change save button state while saving album
     // todo change save button state based on if album is present in library
     rsx! {
         div { class: "min-w-0 flex-1 p",
-            p {
-                label { class: "font-bold", "Search albums " }
-            }
-            p {
-                input {
-                    r#type: "text",
-                    placeholder: "Search query...",
-                    oninput: move |e| query.set(e.value()),
+            div { class: "border-b border-groove-gray p-4",
+                p {
+                    label { class: "font-bold", "Search albums " }
                 }
-                button {
-                    onclick: move |_| async move {
-                        spotify_search(&mut albums, &query).await;
-                    },
-                    "Search"
+                p {
+                    input {
+                        r#type: "text",
+                        placeholder: "Search query...",
+                        oninput: move |e| query.set(e.value()),
+                    }
+                    button {
+                        onclick: move |_| async move {
+                            spotify_search(&mut albums, &query).await;
+                            search_loaded.set(true);
+                        },
+                        "Search"
+                    }
+                }
+            }
+            if search_loaded() {
+                p { class: "text-groove-gray",
+                    {albums.len().to_string()}
+                    " results"
                 }
             }
             div {
