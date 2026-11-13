@@ -1,13 +1,12 @@
 use dioxus::prelude::*;
 
 use crate::{
-    domain::{self, entities::Album},
-    infrastructure::spotify::spotify_api::spotify_search_albums,
+    domain::{self, entities::Album, search::SearchAlbum}, infrastructure::spotify::spotify_api::spotify_search_albums,
 };
 
 #[component]
 pub fn AlbumSearch() -> Element {
-    let mut albums: Signal<Vec<Album>> = use_signal(|| Vec::new());
+    let mut albums: Signal<Vec<SearchAlbum>> = use_signal(|| Vec::new());
     let mut query = use_signal(|| "".to_string());
     let mut search_loaded = use_signal(|| false);
 
@@ -27,7 +26,7 @@ pub fn AlbumSearch() -> Element {
                     }
                     button {
                         onclick: move |_| async move {
-                            spotify_search(&mut albums, &query).await;
+                            search_albums(&mut albums, &query).await;
                             search_loaded.set(true);
                         },
                         "Search"
@@ -52,14 +51,19 @@ pub fn AlbumSearch() -> Element {
                             let spotify_id = album.spotify_id.clone();
                             rsx! {
                                 button {
-                                    class: "ml-auto shrink-0 m-4 p-4 border-2 border-crate-orange rounded-xl text-crate-orange font-bold",
+                                    class: "ml-auto shrink-0 m-4 p-4 border-2 border-crate-orange rounded-xl text-crate-orange font-bold w-36",
+                                    class: if album.is_in_library { "material-symbols-rounded text-sleeve-white bg-crate-orange" },
                                     onclick: move |_| {
                                         let spotify_id = spotify_id.clone();
                                         async move {
                                             add_to_library(&spotify_id).await;
                                         }
                                     },
-                                    "Add to library"
+                                    if album.is_in_library {
+                                        "check_circle"
+                                    } else {
+                                        "Add to library"
+                                    }
                                 }
                             }
                         }
@@ -75,9 +79,8 @@ async fn add_to_library(spotify_id: &String) {
     domain::library::add_to_library(spotify_id).await.unwrap();
 }
 
-async fn spotify_search(albums: &mut Signal<Vec<Album>>, query: &Signal<String>) {
-    let search_results = spotify_search_albums(query.read().to_string());
-    *albums.write() = search_results.await;
+async fn search_albums(albums: &mut Signal<Vec<SearchAlbum>>, query: &Signal<String>) {
+    *albums.write() = domain::search::search_albums(&query.read().to_string()).await;
 }
 
 #[component]

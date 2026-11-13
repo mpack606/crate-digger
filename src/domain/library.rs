@@ -1,6 +1,5 @@
 use crate::{
-    domain::entities::DomainError,
-    infrastructure::{
+    domain::entities::DomainError, infrastructure::{
         self,
         spotify::{self},
     },

@@ -16,7 +16,7 @@ pub async fn spotify_search_albums(query: String) -> Vec<Album> {
         },
         Album {
             id: Uuid::nil(),
-            spotify_id: "ABCD".to_string(),
+            spotify_id: "CDEF".to_string(),
             name: "The blueprint".to_string(),
             artist: "Jay-Z".to_string(),
             rating: 66,

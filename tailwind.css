@@ -9,3 +9,8 @@
   --color-muted-gold: #E5A91D;
   --color-groove-gray: #74716B;
 }
+
+.material-symbols-rounded {
+  font-family: "Material Symbols Rounded";
+  font-feature-settings: "liga"
+}
