@@ -1,8 +1,6 @@
 use dioxus::prelude::*;
 
-use crate::{
-    domain::{self, entities::Album, search::SearchAlbum}, infrastructure::spotify::spotify_api::spotify_search_albums,
-};
+use crate::domain::{self, search::SearchAlbum};
 
 #[component]
 pub fn AlbumSearch() -> Element {
@@ -19,6 +17,8 @@ pub fn AlbumSearch() -> Element {
                     label { class: "font-bold", "Search albums " }
                 }
                 p {
+                    //todo add search icon
+                    //todo add 'x' to clear query
                     input {
                         r#type: "text",
                         placeholder: "Search query...",
@@ -39,8 +39,10 @@ pub fn AlbumSearch() -> Element {
                     " results"
                 }
             }
+            //todo add sorting of results
             div {
                 for album in albums.iter() {
+                    //todo fix line separator gap (maybe separate div?)
                     div { class: "flex w-full items-center gap-4 border-b border-groove-gray p-4",
                         SearchAlbumCard {
                             album_name: album.name.clone(),
